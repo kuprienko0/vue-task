@@ -37,10 +37,11 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  name: "Card",
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
+const CardProps = Vue.extend({
   props: {
     id: Number,
     name: String,
@@ -50,19 +51,22 @@ export default {
     assign: String,
     points: String,
     checkedTeam: Array,
-  },
+  }
+})
 
-  methods:{
+@Component
+class Card extends CardProps{
     deleteCard(){
       this.$store.commit("deleteCard", this.id)
-    },
+    }
 
     editCard(){
       this.$store.commit('showModal', 'edit')
       this.$store.commit('setCurrentCardID', this.id)
     }
-  },
+
 }
+export default Card
 </script>
 
 <style scoped>

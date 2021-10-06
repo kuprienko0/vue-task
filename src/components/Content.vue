@@ -1,6 +1,5 @@
 <template>
   <v-col cols="12">
-<!--    <div id="fullContent" v-if="listOfCards.length < 1" class="text-center d-flex flex-wrap">-->
     <div id="fullContent" v-if="getCards.length > 0" class="text-center d-flex flex-wrap">
       <card-item class="mr-2 ml-2 mt-2 mb-2" v-for="card in getCards"
                  :key="card.id"
@@ -22,11 +21,13 @@
 
 <script>
 import Card from "./Card";
+
 export default {
+  name: 'Content',
+
   components: {
     'card-item': Card
   },
-  name: 'Content',
 
   data: () => ({
     listOfCards: [],
@@ -36,15 +37,6 @@ export default {
     getCards(){
       return this.$store.state.cards
     }
-  },
-
-  methods:{
-    //
-  },
-
-  // created() {
-  //   this.listOfCards = this.getCards
-  // },
-
+  }
 }
 </script>

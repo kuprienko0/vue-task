@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "es2015",
+        "target": "es5",
+        "strict": true,
+        "moduleResolution": "Node",
+        "experimentalDecorators": true,
+    },
+
+    "exclude": [
+        "node_modules",
+        ".vscode"
+    ]
+}

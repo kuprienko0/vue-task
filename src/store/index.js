@@ -6,7 +6,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         cards: [
-
+            {
+                id: 742763972978,
+                type: 'bug',
+                name: 'Task1',
+                description: 'defcwecf',
+                points: '5',
+                assign: 'Viktoria',
+                reporter: 'Viktoria',
+            },
         ],
         dialog: false,
         modalType: 'create',
@@ -22,13 +30,19 @@ export default new Vuex.Store({
                 if (card.id === payload.id){
                     return {...payload}
                 }
+                return card
             })
         },
 
         deleteCard(state, cardId){
-            console.log(cardId)
-            console.log(state.cards.filter(card => card.id !== cardId))
-            state.cards = state.cards.filter(card => card.id !== cardId)
+            const cards = state.cards
+            for (let i = 0; i < cards.length; i++){
+                if (cards[i].id === cardId){
+                    cards.splice(i,1)
+                    return
+                }
+            }
+            state.cards = state.cards.find(card => card.id !== cardId)
 
         },
 
@@ -43,12 +57,18 @@ export default new Vuex.Store({
 
         setCurrentCardID(state, id){
             state.currentCardID = id
+        },
+
+        clearCurrentID(state){
+            state.currentCardID = ''
         }
 
     },
+
     actions: {
         //
     },
+
     getters: {
         getCards(state){
             return state.cards

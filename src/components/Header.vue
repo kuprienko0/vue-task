@@ -22,9 +22,6 @@
 import Modal from "./Modal"
 export default {
   name: "Header",
-  data: () => ({
-    //
-  }),
 
   components:{
     Modal
