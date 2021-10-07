@@ -66,7 +66,9 @@ export default new Vuex.Store({
     },
 
     actions: {
-        //
+        deleteCard({commit}, id){
+            commit('deleteCard', id)
+        }
     },
 
     getters: {

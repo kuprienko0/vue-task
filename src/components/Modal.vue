@@ -128,11 +128,13 @@ export default {
     },
 
     addCard(){
-      const payload = {
-        id: Date.now(),
-        ...this.cardData
+      if (this.cardData.name) {
+        const payload = {
+          id: Date.now(),
+          ...this.cardData
+        }
+        this.$store.commit("addCard", payload)
       }
-      this.$store.commit("addCard", payload)
     },
 
     editCard(){

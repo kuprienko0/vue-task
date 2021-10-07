@@ -30,7 +30,7 @@
           color="white"
       >
         <router-link :to="/details/ + id">
-        Details
+          Details
         </router-link>
       </v-btn>
     </v-card-actions>
@@ -40,7 +40,6 @@
 <script>
 export default {
   name: "Card",
-
   props: {
     id: Number,
     name: String,
@@ -51,10 +50,9 @@ export default {
     points: String,
     checkedTeam: Array,
   },
-
   methods:{
     deleteCard(){
-      this.$store.commit("deleteCard", this.id)
+      this.$store.dispatch("deleteCard", this.id)
     },
 
     editCard(){
@@ -66,5 +64,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
